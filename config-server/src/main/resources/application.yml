@@ -1,0 +1,45 @@
+# #加载本地文件配置
+#spring:
+#  application:
+#    name: config-server
+#  profiles:
+#    active: native #加载本地配置
+#  cloud:
+#    config:
+#      server:
+#        native: #加载本地目录文件
+#          search-locations: /Users/fengfujie/config-server
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          # 配置git仓库的地址
+          uri: https://github.com/fengfujie25/sping-cloud-config
+          # git仓库地址下的相对地址，可以配置多个，用,分割。
+          # search-paths:
+          # git仓库的账号
+          username: 4272231@163.com
+          # git仓库的密码
+          password: fengfujie123.
+
+server:
+  port: 13081
+
+eureka:
+  instance:
+    hostname: eureka1.client.com
+    # 表示eureka client间隔多久去拉取服务注册信息，默认为30秒，如果要迅速获取服务注册状态，可以缩小该值
+    lease-renewal-interval-in-seconds: 5
+    # 表示eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间，在这个时间内若没收到下一次心跳，则将移除该instance。
+    # 默认为90秒
+    # 如果该值太大，则很可能将流量转发过去的时候，该instance已经不存活了。
+    # 如果该值设置太小了，则instance则很可能因为临时的网络抖动而被摘除掉。
+    # 该值至少应该大于 leaseRenewalIntervalInSeconds
+    lease-expiration-duration-in-seconds: 10
+  client:
+    service-url:
+      defaultZone: http://eureka1.server.com:8701/eureka/,http://eureka2.server.com:8702/eureka/,http://eureka3.server.com:8703/eureka/
+
