@@ -18,4 +18,5 @@ public class ConfigClientController {
     public String info() {
         return info;
     }
+
 }
