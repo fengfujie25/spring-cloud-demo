@@ -15,7 +15,7 @@ public class EurekaRibbonConntroller {
     @Autowired
     private EurekaRibbonService eurekaRibbonService;
 
-    @RequestMapping("/syaHello")
+    @RequestMapping("/sayHello")
     public String syaHello() {
         String message = eurekaRibbonService.sayHello();
         return "ribbon result: " + message;

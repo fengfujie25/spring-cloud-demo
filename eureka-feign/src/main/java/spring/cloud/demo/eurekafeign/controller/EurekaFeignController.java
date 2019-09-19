@@ -17,7 +17,7 @@ public class EurekaFeignController {
     @Resource
     private EurekaFeignService eurekaFeignService;
 
-    @RequestMapping("/syaHello")
+    @RequestMapping("/sayHello")
     public String sayHello() {
         return "feign result: " + eurekaFeignService.syaHello();
     }
