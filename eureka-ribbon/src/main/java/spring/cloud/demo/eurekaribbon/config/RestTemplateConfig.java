@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
  * @DateT: 2019-09-17
  */
 @Configuration
-public class EurekaRibbonConfig {
+public class RestTemplateConfig {
 
     @Bean
     @LoadBalanced //实现负载均衡

@@ -26,7 +26,7 @@ public class EurekaRibbonService {
         String message;
         try {
             System.out.println("调用 服务 eureka-client/info");
-            message = restTemplate.getForObject("Http://eureka-client/info", String.class);
+            message = restTemplate.getForObject("http://eureka-client/info", String.class);
             System.out.println("服务 eureka-client/info 返回信息：" + message);
             System.out.println("调用 服务 eureka-client/info success");
         } catch (RestClientException e) {
