@@ -22,3 +22,11 @@ eureka:
 feign:
   hystrix:
     enabled: true
+#修改负载均衡策略
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #配置规则 随机
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule #配置规则 轮询
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RetryRule #配置规则 重试
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #配置规则 响应时间权重
+eureka-client:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
