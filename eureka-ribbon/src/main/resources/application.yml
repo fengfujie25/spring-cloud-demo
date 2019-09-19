@@ -19,7 +19,8 @@ eureka:
     service-url:
       defaultZone: http://eureka1.server.com:8701/eureka/,http://eureka2.server.com:8702/eureka/,http://eureka3.server.com:8703/eureka/
 
-eureka-client:
+#RoundRobinRule：系统默认的规则，通过简单的轮询服务列表来选择服务器，其他的规则在很多情况下，仍然使用RoundRobinRule
+eureka-client: #对应的服务client的name
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 
