@@ -49,7 +49,7 @@ public class CommonFilter extends ZuulFilter {
         //获取请求参数
         String token = request.getParameter("token");
 
-        //如果有token参数并且token值为miniooc，才进行路由
+        //如果有token参数并且token值为maomao，才进行路由
         if (StringUtils.isNotBlank(token) && token.equals("maomao")) {
             requestContext.setSendZuulResponse(true);
             requestContext.setResponseStatusCode(200);
