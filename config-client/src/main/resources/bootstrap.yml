@@ -25,3 +25,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1.server.com:8701/eureka/,http://eureka2.server.com:8702/eureka/,http://eureka3.server.com:8703/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
