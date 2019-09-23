@@ -1,4 +1,4 @@
-# #加载本地文件配置
+##加载本地文件配置
 #spring:
 #  application:
 #    name: config-server
@@ -9,6 +9,8 @@
 #      server:
 #        native: #加载本地目录文件
 #          search-locations: /Users/fengfujie/config-server
+
+#加载远程git仓库资源文件
 spring:
   application:
     name: config-server
@@ -21,9 +23,9 @@ spring:
           # git仓库地址下的相对地址，可以配置多个，用,分割。
           # search-paths:
           # git仓库的账号
-          username: 4272231@163.com
+          username: xxxxx
           # git仓库的密码
-          password: fengfujie123.
+          password: xxxx
 
 server:
   port: 13081
