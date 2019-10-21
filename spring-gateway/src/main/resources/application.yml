@@ -5,26 +5,29 @@ spring:
     name: spring-gateway
   cloud:
       gateway:
-#        discovery:
-#          locator:
-#            enabled: true # 开启通过服务中心的自动根据 serviceId 创建路由的功能
-#        routes:
-#          - id: ribbon-route
-#            uri: lb://EUREKA-RIBBON
-#            order: 0
-#            predicates:
-#              - Path=/ribbon/**
-#            filters:
-#              - StripPrefix=1 #去掉前缀，具体实现参考StripPrefixGatewayFilterFactory
-#              - AddResponseHeader=X-Response-Default-Foo, Default-Bar
-#          - id: feign-route
-#            uri: lb://EUREKA-FEIGN
-#            order: 0
-#            predicates:
-#              - Path=/feign/**
-#            filters:
-#              - StripPrefix=1
-#              - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+        discovery:
+          locator:
+            enabled: true # 开启通过服务中心的自动根据 serviceId 创建路由的功能
+        default-filters:
+          - My=true
+        routes:
+          - id: ribbon-route
+            uri: lb://EUREKA-RIBBON
+            order: 0
+            predicates:
+              - Path=/ribbon/**
+            filters:
+              - StripPrefix=1 #去掉前缀，具体实现参考StripPrefixGatewayFilterFactory
+              - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+          - id: feign-route
+            uri: lb://EUREKA-FEIGN
+            order: 0
+            predicates:
+              - Path=/feign/**
+            filters:
+              - StripPrefix=1
+              - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+
 
 eureka:
   instance:
