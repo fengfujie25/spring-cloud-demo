@@ -23,9 +23,9 @@ public class MyGatewayFilterFactory extends AbstractGatewayFilterFactory<MyGatew
 
     private static final String START_TIME = "startTime";
 
-//    public MyGatewayFilterFactory() {
-//        super(Config.class);
-//    }
+    public MyGatewayFilterFactory() {
+        super(Config.class);
+    }
 
     @Override
     public List<String> shortcutFieldOrder() {

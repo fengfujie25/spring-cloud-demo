@@ -17,8 +17,24 @@ spring:
             predicates:
               - Path=/ribbon/**
             filters:
+              - name: Hystrix
+                args:
+                  name: fallback
+                  fallbackUri: forward:/fallback
               - StripPrefix=1 #去掉前缀，具体实现参考StripPrefixGatewayFilterFactory
               - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+              - name: Retry
+                args:
+                  retries: 3
+                  series:
+                    - SERVER_ERROR
+                  statuses:
+                    - OK
+                  method:
+                    - GET
+                    - POST
+                  exceptions:
+                    - java.io.IOException
           - id: feign-route
             uri: lb://EUREKA-FEIGN
             order: 0
