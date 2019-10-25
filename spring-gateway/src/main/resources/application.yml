@@ -1,6 +1,9 @@
 server:
   port: 8100
 spring:
+  redis:
+    host: localhost
+    port: 6379
   application:
     name: spring-gateway
   cloud:
@@ -17,6 +20,11 @@ spring:
             predicates:
               - Path=/ribbon/**
             filters:
+              - name: RequestRateLimiter
+                args:
+                  key-resolver: '#{@ipKeyResolver}'
+                  redis-rate-limiter.replenishRate: 200
+                  redis-rate-limiter.burstCapacity: 400
               - name: Hystrix
                 args:
                   name: fallback
