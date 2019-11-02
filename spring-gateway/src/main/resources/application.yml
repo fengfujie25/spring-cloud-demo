@@ -52,7 +52,6 @@ spring:
               - StripPrefix=1
               - AddResponseHeader=X-Response-Default-Foo, Default-Bar
 
-
 eureka:
   instance:
     hostname: eureka1.server.com
@@ -67,3 +66,9 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1.server.com:8701/eureka/,http://eureka2.server.com:8702/eureka/,http://eureka3.server.com:8703/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
