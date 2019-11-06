@@ -1,7 +1,6 @@
 package spring.cloud.demo.spring.gateway.factory;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import reactor.core.publisher.Mono;
@@ -9,15 +8,19 @@ import reactor.core.publisher.Mono;
 import java.util.Arrays;
 import java.util.List;
 
+//import org.apache.commons.logging.Log;
+//import org.apache.commons.logging.LogFactory;
+
 /**
  * 自定义过滤器工厂
  *
  * @auther: fujie.feng
  * @DateT: 2019-10-21
  */
+@Slf4j
 public class MyGatewayFilterFactory extends AbstractGatewayFilterFactory<MyGatewayFilterFactory.Config> {
 
-    private static final Log log = LogFactory.getLog(MyGatewayFilterFactory.class);
+//    private static final Log log = LogFactory.getLog(MyGatewayFilterFactory.class);
 
     private static final String PARAMS = "myParams";
 
@@ -48,7 +51,7 @@ public class MyGatewayFilterFactory extends AbstractGatewayFilterFactory<MyGatew
                         if (config.isMyParams()) {
                             sb.append("params:" + exchange.getRequest().getQueryParams());
                         }
-                        log.info(sb.toString());
+                        log.info("gateway MyGatewayFilterFactory :" + sb.toString());
                     })
             );
         });
