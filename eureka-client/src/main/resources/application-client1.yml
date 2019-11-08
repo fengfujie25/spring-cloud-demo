@@ -1,8 +1,8 @@
-spring:
-  application:
-    name: eureka-client
-server:
-  port: 8802
+#spring:
+#  application:
+#    name: eureka-client
+#server:
+#  port: 8802
 
 eureka:
   instance:
@@ -18,3 +18,12 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1.server.com:8701/eureka/,http://eureka2.server.com:8702/eureka/,http://eureka3.server.com:8703/eureka/
+
+spring:
+  sleuth:
+    sampler:
+      probability: 1
+    web:
+      enabled: true
+  zipkin:
+    base-url: http://localhost:9411/

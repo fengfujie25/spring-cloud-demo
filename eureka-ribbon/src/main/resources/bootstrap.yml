@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: eureka-ribbon
+server:
+  port: 8901
+
+

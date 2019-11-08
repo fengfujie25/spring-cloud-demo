@@ -1,8 +1,9 @@
-spring:
-  application:
-    name: eureka-ribbon
-server:
-  port: 8901
+#spring:
+#  application:
+#    name: eureka-ribbon
+#server:
+#  port: 8901
+
 
 eureka:
   instance:
@@ -24,3 +25,11 @@ eureka-client: #对应的服务client的name
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 
+spring:
+  sleuth:
+    sampler:
+      probability: 1
+    web:
+      enabled: true
+  zipkin:
+    base-url: http://localhost:9411/
