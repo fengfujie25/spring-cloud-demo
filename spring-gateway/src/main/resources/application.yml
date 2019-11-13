@@ -2,18 +2,25 @@ server:
   port: 8100
 
 spring:
+  application:
+    name: spring-gateway
+  zipkin:
+    #      base-url: http://localhost:9411/
+    sender:
+      type: rabbit
   sleuth:
     sampler:
-      probability: 1
-    web:
-      enabled: true
-    zipkin:
-      base-url: http://localhost:9411/
+      probability: 1.0
+  #    web:
+  #      enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
   redis:
     host: localhost
     port: 6379
-  application:
-    name: spring-gateway
   cloud:
       gateway:
         discovery:
@@ -59,6 +66,7 @@ spring:
             filters:
               - StripPrefix=1
               - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+
 
 eureka:
   instance:
