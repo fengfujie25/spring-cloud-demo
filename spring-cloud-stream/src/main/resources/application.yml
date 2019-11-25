@@ -1,10 +1,3 @@
-#spring:
-#  application:
-#    name: eureka-ribbon
-#server:
-#  port: 8901
-
-
 eureka:
   instance:
     hostname: eureka1.server.com
@@ -20,34 +13,21 @@ eureka:
     service-url:
       defaultZone: http://eureka1.server.com:8701/eureka/,http://eureka2.server.com:8702/eureka/,http://eureka3.server.com:8703/eureka/
 
-#RoundRobinRule：系统默认的规则，通过简单的轮询服务列表来选择服务器，其他的规则在很多情况下，仍然使用RoundRobinRule
-eureka-client: #对应的服务client的name
-  ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 
 spring:
+  application:
+    name: spring-cloud-stream
   cloud:
     stream:
-      kafka:
+      kafaka:
         binder:
-          brokers: 100.80.140.41:9092
-          #          zk-nodes: 192.168.10.196:2181
+          brokers: 100.80.12.99:9092 #kafaka服务地址
+          zk-noeds: 100.80.12.99:2181 #zk服务地址
           auto-create-topics: true
       bindings:
-        input:
-          destination: stream-kafaka
+        output:  #stream默认提供的output
+          destination: stream-kafaka #消息发送到的目的地
+          content-type: text/plain #消息发送格式，接收端不用指定格式，但是发送端要。
 
-  sleuth:
-    sampler:
-      probability: 1
-    web:
-      enabled: true
-  zipkin:
-    #    base-url: http://localhost:9411/
-    sender:
-      type: rabbit
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+server:
+  port: 1000
