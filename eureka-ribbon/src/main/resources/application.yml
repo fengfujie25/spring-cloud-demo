@@ -36,7 +36,6 @@ spring:
       bindings:
         input:
           destination: stream-kafaka
-
   sleuth:
     sampler:
       probability: 1
