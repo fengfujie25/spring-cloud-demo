@@ -10,3 +10,5 @@
 ### 1.8 [hystrix-dashboard](https://github.com/fengfujie25/spring-cloud-demo/tree/master/hystrix-dashboard)熔断监控dashboard
 
 > 创建的是父子工程，但是没有对pom做整理，可以忽略。
+
+test code
